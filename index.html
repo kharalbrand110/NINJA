@@ -1,390 +1,580 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥</title>  
-    <style>  
-        :root {  
-            --primary: #00feba;  
-            --secondary: #5b548a;  
-            --dark: #0f2027;  
-            --light: #ffffff;  
-        }  
-        * {  
-            margin: 0;  
-            padding: 0;  
-            box-sizing: border-box;  
-            font-family: 'Poppins', sans-serif;  
-        }  
-        body {  
-            background: linear-gradient(135deg, var(--dark), #203a43);  
-            color: var(--light);  
-            min-height: 100vh;  
-            padding: 20px;  
-        }  
-        .container {  
-            max-width: 500px;  
-            margin: 0 auto;  
-            padding: 20px;  
-        }  
-        header {  
-            text-align: center;  
-            margin-bottom: 30px;  
-        }  
-        .logo {  
-            width: 100px;  
-            height: 100px;  
-            border-radius: 50%;  
-            border: 3px solid var(--primary);  
-            object-fit: cover;  
-            margin: 0 auto 15px;  
-            display: block;  
-        }  
-        .company-name {  
-            font-size: 2rem;  
-            font-weight: 700;  
-            color: var(--primary);  
-            margin-bottom: 5px;  
-        }  
-        .tagline {  
-            font-size: 1rem;  
-            color: rgba(255, 255, 255, 0.7);  
-        }  
-        .form-box {  
-            background: rgba(30, 30, 30, 0.8);  
-            padding: 30px;  
-            border-radius: 15px;  
-            margin-bottom: 30px;  
-            border: 1px solid rgba(255, 255, 255, 0.1);  
-        }  
-        .form-title {  
-            text-align: center;  
-            margin-bottom: 25px;  
-            color: var(--primary);  
-        }  
-        .input-group {  
-            margin-bottom: 20px;  
-        }  
-        .input-group input {  
-            width: 100%;  
-            padding: 14px;  
-            border: none;  
-            border-radius: 8px;  
-            background: rgba(51, 51, 51, 0.7);  
-            color: var(--light);  
-        }  
-        .btn {  
-            width: 100%;  
-            padding: 14px;  
-            border: none;  
-            border-radius: 8px;  
-            background: linear-gradient(135deg, var(--primary), var(--secondary));  
-            color: white;  
-            font-weight: 600;  
-            cursor: pointer;  
-            transition: all 0.3s;  
-        }  
-        .btn:hover {  
-            transform: translateY(-3px);  
-            box-shadow: 0 10px 20px rgba(0, 254, 186, 0.3);  
-        }  
-        .form-footer {  
-            text-align: center;  
-            margin-top: 20px;  
-            color: rgba(255, 255, 255, 0.6);  
-        }  
-        .form-footer a {  
-            color: var(--primary);  
-            text-decoration: none;  
-            font-weight: 500;  
-        }  
-        .apps-section {  
-            display: none;  
-        }  
-        .app-card {  
-            background: rgba(34, 34, 34, 0.8);  
-            border-radius: 12px;  
-            padding: 20px;  
-            margin-bottom: 20px;  
-            text-align: center;  
-            transition: all 0.3s;  
-            border: 1px solid rgba(255, 255, 255, 0.1);  
-        }  
-        .app-card:hover {  
-            transform: translateY(-5px);  
-            box-shadow: 0 15px 30px rgba(0, 254, 186, 0.2);  
-        }  
-        .app-icon {  
-            width: 100px;  
-            height: 100px;  
-            border-radius: 20px;  
-            object-fit: cover;  
-            margin: 0 auto 15px;  
-            border: 3px solid var(--primary);  
-            background-color: #333;  
-        }  
-        .search-box {  
-            margin-bottom: 20px;  
-        }  
-        .search-box input {  
-            width: 100%;  
-            padding: 14px;  
-            border: none;  
-            border-radius: 8px;  
-            background: rgba(51, 51, 51, 0.7);  
-            color: var(--light);  
-        }  
-        .loader {  
-            display: none;  
-            margin: 20px auto;  
-            border: 4px solid rgba(51, 51, 51, 0.3);  
-            border-top: 4px solid var(--primary);  
-            border-radius: 50%;  
-            width: 40px;  
-            height: 40px;  
-            animation: spin 1s linear infinite;  
-        }  
-        @keyframes spin {  
-            0% { transform: rotate(0deg); }  
-            100% { transform: rotate(360deg); }  
-        }  
-        .message {  
-            text-align: center;  
-            margin: 15px 0;  
-            color: var(--primary);  
-        }  
-        footer {  
-            text-align: center;  
-            margin-top: 50px;  
-            padding-top: 20px;  
-            border-top: 1px solid rgba(255, 255, 255, 0.1);  
-            color: rgba(255, 255, 255, 0.5);  
-        }  
-    </style>  
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
-</head>  
-<body>  
-    <div class="container">  
-        <header>  
-    <img src="https://i.postimg.cc/m21SHQPr/07-42-09-images.jpg" class="logo" alt="𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥 Logo">  
-    <h1 class="company-name">𝐊𝐇𝐀𝐑𝐀𝐋  𝐌𝐎𝐃𝐒</h1>  
-    <p class="tagline">𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝒌𝒉𝒂𝒓𝒂𝒍 𝒎𝒐𝒅𝒔 𝒐𝒇𝒇𝒊𝒄𝒊𝒂𝒍 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒂𝒑𝒑𝒔 𝒕𝒐𝒐𝒍</p>  
-</header>  <div class="form-box" id="signupBox">  
-        <h2 class="form-title">Create Account</h2>  
-        <div class="input-group">  
-            <input type="email" id="email" placeholder="Your Email" required>  
-        </div>  
-        <div class="input-group">  
-            <input type="password" id="password" placeholder="Create Password" required>  
-        </div>  
-        <button class="btn" onclick="signUp()">Register</button>  
-        <div id="loader" class="loader"></div>  
-        <div id="message" class="message"></div>  
-        <p class="form-footer">  
-            Already have an account? <a href="#" onclick="showLogin()">Login here</a>  
-        </p>  
-    </div>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K0J4 Database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: #0a192f;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Splash Screen */
+        #splashScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a192f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .splash-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 3px solid #00d4ff;
+        }
+        
+        .splash-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: #00d4ff;
+            animation: load 4s linear forwards;
+        }
+        
+        @keyframes load {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        /* Main Content */
+        .container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #00d4ff;
+        }
+        
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            color: #00d4ff;
+            margin-bottom: 5px;
+        }
+        
+        /* Search Box */
+        .search-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+        
+        .search-btn {
+            width: 100%;
+            padding: 15px;
+            background: #00d4ff;
+            color: #0a192f;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #00b8e6;
+        }
+        
+        /* Results */
+        .results {
+            margin-top: 20px;
+        }
+        
+        .result-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 3px solid #00d4ff;
+            position: relative;
+        }
+        
+        .card-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .card-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .label {
+            width: 100px;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        
+        .value {
+            flex: 1;
+            color: #fff;
+        }
+        
+        /* Save Button - Now at bottom */
+        .save-btn {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            display: none;
+        }
+        
+        .save-btn:hover {
+            background: #218838;
+        }
+        
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid #00d4ff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Empty State */
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Error */
+        .error {
+            background: rgba(255,0,0,0.1);
+            border: 1px solid rgba(255,0,0,0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splashScreen">
+        <div class="splash-logo">
+            <!-- Direct image URL -->
+            <img src="https://i.ibb.co/KD5jDwj/logo.jpg" alt="K0J4 Logo" 
+                 onerror="this.onerror=null; this.src='https://i.imgur.com/2z5X8cB.png'">
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container" id="mainContainer">
+        <div class="header">
+            <!-- Header Logo -->
+            <div class="header-logo">
+                <img src="https://i.ibb.co/KD5jDwj/logo.jpg" alt="K0J4 Logo"
+                     onerror="this.onerror=null; this.src='https://i.imgur.com/2z5X8cB.png'">
+            </div>
+            <div>
+                <h1>K0J4 Database</h1>
+            </div>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Enter phone number or CNIC" autocomplete="off">
+            <button class="search-btn" onclick="searchData()">
+                <i class="fas fa-search"></i> Search Database
+            </button>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Searching Database...</p>
+        </div>
+        
+        <div class="results" id="results">
+            <div class="empty" id="emptyState">
+                <p>Enter search query to display results</p>
+            </div>
+        </div>
+        
+        <!-- Save Button at Bottom -->
+        <button class="save-btn" id="saveBtn" onclick="saveAsImage()" style="display: none;">
+            <i class="fas fa-download"></i> Save Result as Image
+        </button>
+        
+        <div class="footer">
+            <p>K0J4 Database System</p>
+        </div>
+    </div>
 
-    <div class="form-box" id="loginBox" style="display:none;">  
-        <h2 class="form-title">Login</h2>  
-        <div class="input-group">  
-            <input type="email" id="loginEmail" placeholder="Your Email" required>  
-        </div>  
-        <div class="input-group">  
-            <input type="password" id="loginPass" placeholder="Your Password" required>  
-        </div>  
-        <button class="btn" onclick="loginUser()">Login</button>  
-        <div id="loaderLogin" class="loader"></div>  
-        <div id="messageLogin" class="message"></div>  
-        <p class="form-footer">  
-            New user? <a href="#" onclick="showSignup()">Register here</a>  
-        </p>  
-    </div>  
-
-    <div class="apps-section" id="appsSection">  
-        <div class="search-box">  
-            <input type="text" id="searchInput" placeholder="Search apps..." oninput="filterApps()">  
-        </div>  
-        <div id="appsContainer"></div>  
-    </div>  
-</div>  
-
-<footer>  
-    © 2023 𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.  
-</footer>  
-
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>  
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>  
-<script>  
-    // Firebase Configuration  
-    const firebaseConfig = {  
-        apiKey: "AIzaSyBIwUsxyeQmoeT2ctH2LxqRU__dhqp9s94",  
-        authDomain: "kharal-b47b6.firebaseapp.com",  
-        databaseURL: "https://kharal-b47b6-default-rtdb.firebaseio.com",  
-        projectId: "kharal-b47b6",  
-        storageBucket: "kharal-b47b6.appspot.com",  
-        messagingSenderId: "528214841740",  
-        appId: "1:528214841740:web:e394a574ef2ba2c16e9ea9"  
-    };  
-
-    // Initialize Firebase  
-    if (!firebase.apps.length) {  
-        firebase.initializeApp(firebaseConfig);  
-    }  
-    const database = firebase.database();  
-
-    // Show Login Form  
-    function showLogin() {  
-        document.getElementById("signupBox").style.display = "none";  
-        document.getElementById("loginBox").style.display = "block";  
-        document.getElementById("appsSection").style.display = "none";  
-        clearMessages();  
-    }  
-
-    // Show Signup Form  
-    function showSignup() {  
-        document.getElementById("loginBox").style.display = "none";  
-        document.getElementById("signupBox").style.display = "block";  
-        document.getElementById("appsSection").style.display = "none";  
-        clearMessages();  
-    }  
-
-    // Clear Messages  
-    function clearMessages() {  
-        document.getElementById("message").innerHTML = "";  
-        document.getElementById("messageLogin").innerHTML = "";  
-    }  
-
-    // User Registration  
-    function signUp() {  
-        const email = document.getElementById("email").value;  
-        const password = document.getElementById("password").value;  
-          
-        if (!email || !password) {  
-            document.getElementById("message").innerHTML = "Please fill all fields";  
-            return;  
-        }  
-
-        document.getElementById("loader").style.display = "block";  
-        document.getElementById("message").innerHTML = "";  
-          
-        const userId = email.replace(/[.#$[\]]/g, '_');  
-          
-        database.ref("userRequests/" + userId).set({  
-            email: email,  
-            password: password,  
-            status: "pending",  
-            registeredAt: new Date().toISOString()  
-        })  
-        .then(() => {  
-            document.getElementById("loader").style.display = "none";  
-            document.getElementById("message").innerHTML = "Registration successful! your request has ben sent to admin wait for approval.";  
-            document.getElementById("email").value = "";  
-            document.getElementById("password").value = "";  
-            setTimeout(showLogin, 2000);  
-        })  
-        .catch(error => {  
-            document.getElementById("loader").style.display = "none";  
-            document.getElementById("message").innerHTML = "Error: " + error.message;  
-        });  
-    }  
-
-    // User Login  
-    function loginUser() {  
-        const email = document.getElementById("loginEmail").value;  
-        const password = document.getElementById("loginPass").value;  
-          
-        if (!email || !password) {  
-            document.getElementById("messageLogin").innerHTML = "Please fill all fields";  
-            return;  
-        }  
-
-        document.getElementById("loaderLogin").style.display = "block";  
-        document.getElementById("messageLogin").innerHTML = "";  
-          
-        const userId = email.replace(/[.#$[\]]/g, '_');  
-          
-        database.ref("userRequests/" + userId).once("value")  
-        .then(snapshot => {  
-            document.getElementById("loaderLogin").style.display = "none";  
-              
-            if (!snapshot.exists()) {  
-                document.getElementById("messageLogin").innerHTML = "User not found. Please register first.";  
-                return;  
-            }  
-
-            const user = snapshot.val();  
-            if (user.status !== "approved") {  
-                document.getElementById("messageLogin").innerHTML = "Account not approved yet. Please contact admin for approval.";  
-                return;  
-            }  
-
-            if (user.password !== password) {  
-                document.getElementById("messageLogin").innerHTML = "Incorrect password. Please try again.";  
-                return;  
-            }  
-
-            document.getElementById("loginEmail").value = "";  
-            document.getElementById("loginPass").value = "";  
-            document.getElementById("messageLogin").innerHTML = "Login successful! Loading apps...";  
-            setTimeout(showApps, 1000);  
-        })  
-        .catch(error => {  
-            document.getElementById("loaderLogin").style.display = "none";  
-            document.getElementById("messageLogin").innerHTML = "Error: " + error.message;  
-        });  
-    }  
-
-    // Show Apps Section  
-    function showApps() {  
-        document.getElementById("loginBox").style.display = "none";  
-        document.getElementById("signupBox").style.display = "none";  
-        document.getElementById("appsSection").style.display = "block";  
-        loadApps();  
-    }  
-
-    // Load Apps from Firebase  
-    function loadApps() {  
-        database.ref("apps").on("value", snapshot => {  
-            let appsHTML = "";  
-            let appCount = 0;  
-              
-            snapshot.forEach(child => {  
-                const app = child.val();  
-                appsHTML += `  
-                    <div class="app-card" data-name="${app.name.toLowerCase()}">  
-                        <img src="${app.logo}" class="app-icon" alt="${app.name}"  
-                             onerror="this.onerror=null;this.src='https://via.placeholder.com/150/00feba/ffffff?text='+encodeURIComponent('${app.name.substring(0,2)}')">  
-                        <h3>${app.name}</h3>  
-                        <a href="${app.downloadURL}" target="_blank">  
-                            <button class="btn">𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃</button>  
-                        </a>  
-                    </div>  
-                `;  
-                appCount++;  
-            });  
-
-            document.getElementById("appsContainer").innerHTML = appsHTML ||   
-                '<div class="app-card">No apps available yet. Please check back later.</div>';  
-        });  
-    }  
-
-    // Filter Apps by Search  
-    function filterApps() {  
-        const searchTerm = document.getElementById("searchInput").value.toLowerCase();  
-        const appCards = document.querySelectorAll(".app-card");  
-          
-        appCards.forEach(card => {  
-            const appName = card.getAttribute("data-name");  
-            card.style.display = appName.includes(searchTerm) ? "block" : "none";  
-        });  
-    }  
-
-    // Initialize  
-    window.onload = function() {  
-        showSignup();  
-    };  
-</script>
-
-</body>  
+    <!-- Simple HTML2Canvas script without zoom -->
+    <script>
+        // Direct working image URLs
+        const logoUrl = "https://i.ibb.co/KD5jDwj/logo.jpg";
+        const fallbackLogo = "https://i.imgur.com/2z5X8cB.png";
+        
+        const apiUrl = "https://sim.f-a-k.workers.dev/?q=";
+        
+        // Handle splash screen
+        setTimeout(() => {
+            document.getElementById('splashScreen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('splashScreen').style.display = 'none';
+                document.getElementById('mainContainer').style.display = 'block';
+            }, 500);
+        }, 4000);
+        
+        // Set logo images
+        window.onload = function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // Test if image loads
+                const testImg = new Image();
+                testImg.onload = function() {
+                    img.src = logoUrl;
+                };
+                testImg.onerror = function() {
+                    img.src = fallbackLogo;
+                };
+                testImg.src = logoUrl;
+            });
+        };
+        
+        async function searchData() {
+            const input = document.getElementById('searchInput').value.trim();
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+            const emptyDiv = document.getElementById('emptyState');
+            const saveBtn = document.getElementById('saveBtn');
+            
+            if (!input) {
+                alert('Please enter phone number or CNIC');
+                return;
+            }
+            
+            // Show loading, hide empty and save button
+            loadingDiv.style.display = 'block';
+            emptyDiv.style.display = 'none';
+            saveBtn.style.display = 'none';
+            resultsDiv.innerHTML = '';
+            
+            try {
+                const response = await fetch(apiUrl + encodeURIComponent(input));
+                const data = await response.json();
+                
+                // Simulate delay
+                await new Promise(r => setTimeout(r, 1000));
+                
+                loadingDiv.style.display = 'none';
+                
+                if (data.success && data.data && data.data.length > 0) {
+                    data.data.forEach((item, index) => {
+                        if (!item.name && !item.cnic) return;
+                        
+                        const card = document.createElement('div');
+                        card.className = 'result-card';
+                        card.id = `resultCard-${index}`;
+                        
+                        card.innerHTML = `
+                            <div class="card-row">
+                                <div class="label">Name:</div>
+                                <div class="value">${item.name || 'N/A'}</div>
+                            </div>
+                            <div class="card-row">
+                                <div class="label">Phone:</div>
+                                <div class="value">${item.number || 'N/A'}</div>
+                            </div>
+                            <div class="card-row">
+                                <div class="label">CNIC:</div>
+                                <div class="value">${item.cnic || 'N/A'}</div>
+                            </div>
+                            <div class="card-row">
+                                <div class="label">Address:</div>
+                                <div class="value">${item.address || 'N/A'}</div>
+                            </div>
+                        `;
+                        
+                        resultsDiv.appendChild(card);
+                    });
+                    
+                    // Show save button at bottom
+                    saveBtn.style.display = 'flex';
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="empty">
+                            <p>No results found</p>
+                        </div>
+                    `;
+                    saveBtn.style.display = 'none';
+                }
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <p>Connection error. Please try again.</p>
+                    </div>
+                `;
+                saveBtn.style.display = 'none';
+            }
+        }
+        
+        // Simple Image Save Function
+        async function saveAsImage() {
+            const saveBtn = document.getElementById('saveBtn');
+            const originalText = saveBtn.innerHTML;
+            
+            // Change button text to saving
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+            saveBtn.disabled = true;
+            
+            try {
+                // Get the result cards
+                const resultCards = document.querySelectorAll('.result-card');
+                
+                if (resultCards.length === 0) {
+                    alert('No results to save');
+                    saveBtn.innerHTML = originalText;
+                    saveBtn.disabled = false;
+                    return;
+                }
+                
+                // Create a simple canvas for screenshot
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Set canvas size
+                canvas.width = 800;
+                canvas.height = 400 + (resultCards.length * 150);
+                
+                // Draw background
+                ctx.fillStyle = '#0a192f';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw header
+                ctx.fillStyle = '#00d4ff';
+                ctx.font = 'bold 28px Arial';
+                ctx.fillText('K0J4 Database Result', 50, 60);
+                
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '14px Arial';
+                ctx.fillText(`Generated: ${new Date().toLocaleString()}`, 50, 90);
+                
+                // Draw line
+                ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+                ctx.beginPath();
+                ctx.moveTo(50, 110);
+                ctx.lineTo(750, 110);
+                ctx.stroke();
+                
+                // Draw results
+                let yPos = 150;
+                
+                resultCards.forEach((card, index) => {
+                    const rows = card.querySelectorAll('.card-row');
+                    
+                    // Draw card background
+                    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+                    ctx.fillRect(50, yPos, 700, 120);
+                    
+                    // Draw left border
+                    ctx.fillStyle = '#00d4ff';
+                    ctx.fillRect(50, yPos, 5, 120);
+                    
+                    rows.forEach(row => {
+                        const label = row.querySelector('.label').textContent.replace(':', '');
+                        const value = row.querySelector('.value').textContent;
+                        
+                        // Draw label
+                        ctx.fillStyle = '#00d4ff';
+                        ctx.font = 'bold 16px Arial';
+                        ctx.fillText(label + ':', 70, yPos + 30);
+                        
+                        // Draw value
+                        ctx.fillStyle = '#ffffff';
+                        ctx.font = '16px Arial';
+                        ctx.fillText(value, 200, yPos + 30);
+                        
+                        yPos += 25;
+                    });
+                    
+                    yPos += 30; // Space between cards
+                });
+                
+                // Draw footer
+                ctx.fillStyle = 'rgba(255,255,255,0.5)';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('Made with K0J4 Database System', canvas.width/2, canvas.height - 30);
+                
+                // Convert to image and download
+                const image = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = `K0J4_Result_${new Date().getTime()}.png`;
+                link.href = image;
+                
+                // Trigger download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Reset button
+                saveBtn.innerHTML = originalText;
+                saveBtn.disabled = false;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error saving image. Using simple method...');
+                
+                // Try alternative method
+                try {
+                    // Simple text save as alternative
+                    const resultCards = document.querySelectorAll('.result-card');
+                    let textContent = 'K0J4 Database Result\n';
+                    textContent += 'Generated: ' + new Date().toLocaleString() + '\n\n';
+                    
+                    resultCards.forEach(card => {
+                        const rows = card.querySelectorAll('.card-row');
+                        rows.forEach(row => {
+                            const label = row.querySelector('.label').textContent;
+                            const value = row.querySelector('.value').textContent;
+                            textContent += label + ' ' + value + '\n';
+                        });
+                        textContent += '\n';
+                    });
+                    
+                    textContent += '\nMade with K0J4 Database System';
+                    
+                    const blob = new Blob([textContent], {type: 'text/plain'});
+                    const link = document.createElement('a');
+                    link.download = `K0J4_Result_${new Date().getTime()}.txt`;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                    
+                } catch (e) {
+                    alert('Could not save file. Please take a screenshot manually.');
+                }
+                
+                // Reset button
+                saveBtn.innerHTML = originalText;
+                saveBtn.disabled = false;
+            }
+        }
+        
+        // Enter key support
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchData();
+        });
+        
+        // Focus input after splash
+        setTimeout(() => {
+            document.getElementById('searchInput').focus();
+        }, 4500);
+    </script>
+</body>
 </html>
