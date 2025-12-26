@@ -1,0 +1,390 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥</title>  
+    <style>  
+        :root {  
+            --primary: #00feba;  
+            --secondary: #5b548a;  
+            --dark: #0f2027;  
+            --light: #ffffff;  
+        }  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+            font-family: 'Poppins', sans-serif;  
+        }  
+        body {  
+            background: linear-gradient(135deg, var(--dark), #203a43);  
+            color: var(--light);  
+            min-height: 100vh;  
+            padding: 20px;  
+        }  
+        .container {  
+            max-width: 500px;  
+            margin: 0 auto;  
+            padding: 20px;  
+        }  
+        header {  
+            text-align: center;  
+            margin-bottom: 30px;  
+        }  
+        .logo {  
+            width: 100px;  
+            height: 100px;  
+            border-radius: 50%;  
+            border: 3px solid var(--primary);  
+            object-fit: cover;  
+            margin: 0 auto 15px;  
+            display: block;  
+        }  
+        .company-name {  
+            font-size: 2rem;  
+            font-weight: 700;  
+            color: var(--primary);  
+            margin-bottom: 5px;  
+        }  
+        .tagline {  
+            font-size: 1rem;  
+            color: rgba(255, 255, 255, 0.7);  
+        }  
+        .form-box {  
+            background: rgba(30, 30, 30, 0.8);  
+            padding: 30px;  
+            border-radius: 15px;  
+            margin-bottom: 30px;  
+            border: 1px solid rgba(255, 255, 255, 0.1);  
+        }  
+        .form-title {  
+            text-align: center;  
+            margin-bottom: 25px;  
+            color: var(--primary);  
+        }  
+        .input-group {  
+            margin-bottom: 20px;  
+        }  
+        .input-group input {  
+            width: 100%;  
+            padding: 14px;  
+            border: none;  
+            border-radius: 8px;  
+            background: rgba(51, 51, 51, 0.7);  
+            color: var(--light);  
+        }  
+        .btn {  
+            width: 100%;  
+            padding: 14px;  
+            border: none;  
+            border-radius: 8px;  
+            background: linear-gradient(135deg, var(--primary), var(--secondary));  
+            color: white;  
+            font-weight: 600;  
+            cursor: pointer;  
+            transition: all 0.3s;  
+        }  
+        .btn:hover {  
+            transform: translateY(-3px);  
+            box-shadow: 0 10px 20px rgba(0, 254, 186, 0.3);  
+        }  
+        .form-footer {  
+            text-align: center;  
+            margin-top: 20px;  
+            color: rgba(255, 255, 255, 0.6);  
+        }  
+        .form-footer a {  
+            color: var(--primary);  
+            text-decoration: none;  
+            font-weight: 500;  
+        }  
+        .apps-section {  
+            display: none;  
+        }  
+        .app-card {  
+            background: rgba(34, 34, 34, 0.8);  
+            border-radius: 12px;  
+            padding: 20px;  
+            margin-bottom: 20px;  
+            text-align: center;  
+            transition: all 0.3s;  
+            border: 1px solid rgba(255, 255, 255, 0.1);  
+        }  
+        .app-card:hover {  
+            transform: translateY(-5px);  
+            box-shadow: 0 15px 30px rgba(0, 254, 186, 0.2);  
+        }  
+        .app-icon {  
+            width: 100px;  
+            height: 100px;  
+            border-radius: 20px;  
+            object-fit: cover;  
+            margin: 0 auto 15px;  
+            border: 3px solid var(--primary);  
+            background-color: #333;  
+        }  
+        .search-box {  
+            margin-bottom: 20px;  
+        }  
+        .search-box input {  
+            width: 100%;  
+            padding: 14px;  
+            border: none;  
+            border-radius: 8px;  
+            background: rgba(51, 51, 51, 0.7);  
+            color: var(--light);  
+        }  
+        .loader {  
+            display: none;  
+            margin: 20px auto;  
+            border: 4px solid rgba(51, 51, 51, 0.3);  
+            border-top: 4px solid var(--primary);  
+            border-radius: 50%;  
+            width: 40px;  
+            height: 40px;  
+            animation: spin 1s linear infinite;  
+        }  
+        @keyframes spin {  
+            0% { transform: rotate(0deg); }  
+            100% { transform: rotate(360deg); }  
+        }  
+        .message {  
+            text-align: center;  
+            margin: 15px 0;  
+            color: var(--primary);  
+        }  
+        footer {  
+            text-align: center;  
+            margin-top: 50px;  
+            padding-top: 20px;  
+            border-top: 1px solid rgba(255, 255, 255, 0.1);  
+            color: rgba(255, 255, 255, 0.5);  
+        }  
+    </style>  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+</head>  
+<body>  
+    <div class="container">  
+        <header>  
+    <img src="https://i.postimg.cc/m21SHQPr/07-42-09-images.jpg" class="logo" alt="𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥 Logo">  
+    <h1 class="company-name">𝐊𝐇𝐀𝐑𝐀𝐋  𝐌𝐎𝐃𝐒</h1>  
+    <p class="tagline">𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝒌𝒉𝒂𝒓𝒂𝒍 𝒎𝒐𝒅𝒔 𝒐𝒇𝒇𝒊𝒄𝒊𝒂𝒍 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒂𝒑𝒑𝒔 𝒕𝒐𝒐𝒍</p>  
+</header>  <div class="form-box" id="signupBox">  
+        <h2 class="form-title">Create Account</h2>  
+        <div class="input-group">  
+            <input type="email" id="email" placeholder="Your Email" required>  
+        </div>  
+        <div class="input-group">  
+            <input type="password" id="password" placeholder="Create Password" required>  
+        </div>  
+        <button class="btn" onclick="signUp()">Register</button>  
+        <div id="loader" class="loader"></div>  
+        <div id="message" class="message"></div>  
+        <p class="form-footer">  
+            Already have an account? <a href="#" onclick="showLogin()">Login here</a>  
+        </p>  
+    </div>  
+
+    <div class="form-box" id="loginBox" style="display:none;">  
+        <h2 class="form-title">Login</h2>  
+        <div class="input-group">  
+            <input type="email" id="loginEmail" placeholder="Your Email" required>  
+        </div>  
+        <div class="input-group">  
+            <input type="password" id="loginPass" placeholder="Your Password" required>  
+        </div>  
+        <button class="btn" onclick="loginUser()">Login</button>  
+        <div id="loaderLogin" class="loader"></div>  
+        <div id="messageLogin" class="message"></div>  
+        <p class="form-footer">  
+            New user? <a href="#" onclick="showSignup()">Register here</a>  
+        </p>  
+    </div>  
+
+    <div class="apps-section" id="appsSection">  
+        <div class="search-box">  
+            <input type="text" id="searchInput" placeholder="Search apps..." oninput="filterApps()">  
+        </div>  
+        <div id="appsContainer"></div>  
+    </div>  
+</div>  
+
+<footer>  
+    © 2023 𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.  
+</footer>  
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>  
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>  
+<script>  
+    // Firebase Configuration  
+    const firebaseConfig = {  
+        apiKey: "AIzaSyBIwUsxyeQmoeT2ctH2LxqRU__dhqp9s94",  
+        authDomain: "kharal-b47b6.firebaseapp.com",  
+        databaseURL: "https://kharal-b47b6-default-rtdb.firebaseio.com",  
+        projectId: "kharal-b47b6",  
+        storageBucket: "kharal-b47b6.appspot.com",  
+        messagingSenderId: "528214841740",  
+        appId: "1:528214841740:web:e394a574ef2ba2c16e9ea9"  
+    };  
+
+    // Initialize Firebase  
+    if (!firebase.apps.length) {  
+        firebase.initializeApp(firebaseConfig);  
+    }  
+    const database = firebase.database();  
+
+    // Show Login Form  
+    function showLogin() {  
+        document.getElementById("signupBox").style.display = "none";  
+        document.getElementById("loginBox").style.display = "block";  
+        document.getElementById("appsSection").style.display = "none";  
+        clearMessages();  
+    }  
+
+    // Show Signup Form  
+    function showSignup() {  
+        document.getElementById("loginBox").style.display = "none";  
+        document.getElementById("signupBox").style.display = "block";  
+        document.getElementById("appsSection").style.display = "none";  
+        clearMessages();  
+    }  
+
+    // Clear Messages  
+    function clearMessages() {  
+        document.getElementById("message").innerHTML = "";  
+        document.getElementById("messageLogin").innerHTML = "";  
+    }  
+
+    // User Registration  
+    function signUp() {  
+        const email = document.getElementById("email").value;  
+        const password = document.getElementById("password").value;  
+          
+        if (!email || !password) {  
+            document.getElementById("message").innerHTML = "Please fill all fields";  
+            return;  
+        }  
+
+        document.getElementById("loader").style.display = "block";  
+        document.getElementById("message").innerHTML = "";  
+          
+        const userId = email.replace(/[.#$[\]]/g, '_');  
+          
+        database.ref("userRequests/" + userId).set({  
+            email: email,  
+            password: password,  
+            status: "pending",  
+            registeredAt: new Date().toISOString()  
+        })  
+        .then(() => {  
+            document.getElementById("loader").style.display = "none";  
+            document.getElementById("message").innerHTML = "Registration successful! your request has ben sent to admin wait for approval.";  
+            document.getElementById("email").value = "";  
+            document.getElementById("password").value = "";  
+            setTimeout(showLogin, 2000);  
+        })  
+        .catch(error => {  
+            document.getElementById("loader").style.display = "none";  
+            document.getElementById("message").innerHTML = "Error: " + error.message;  
+        });  
+    }  
+
+    // User Login  
+    function loginUser() {  
+        const email = document.getElementById("loginEmail").value;  
+        const password = document.getElementById("loginPass").value;  
+          
+        if (!email || !password) {  
+            document.getElementById("messageLogin").innerHTML = "Please fill all fields";  
+            return;  
+        }  
+
+        document.getElementById("loaderLogin").style.display = "block";  
+        document.getElementById("messageLogin").innerHTML = "";  
+          
+        const userId = email.replace(/[.#$[\]]/g, '_');  
+          
+        database.ref("userRequests/" + userId).once("value")  
+        .then(snapshot => {  
+            document.getElementById("loaderLogin").style.display = "none";  
+              
+            if (!snapshot.exists()) {  
+                document.getElementById("messageLogin").innerHTML = "User not found. Please register first.";  
+                return;  
+            }  
+
+            const user = snapshot.val();  
+            if (user.status !== "approved") {  
+                document.getElementById("messageLogin").innerHTML = "Account not approved yet. Please contact admin for approval.";  
+                return;  
+            }  
+
+            if (user.password !== password) {  
+                document.getElementById("messageLogin").innerHTML = "Incorrect password. Please try again.";  
+                return;  
+            }  
+
+            document.getElementById("loginEmail").value = "";  
+            document.getElementById("loginPass").value = "";  
+            document.getElementById("messageLogin").innerHTML = "Login successful! Loading apps...";  
+            setTimeout(showApps, 1000);  
+        })  
+        .catch(error => {  
+            document.getElementById("loaderLogin").style.display = "none";  
+            document.getElementById("messageLogin").innerHTML = "Error: " + error.message;  
+        });  
+    }  
+
+    // Show Apps Section  
+    function showApps() {  
+        document.getElementById("loginBox").style.display = "none";  
+        document.getElementById("signupBox").style.display = "none";  
+        document.getElementById("appsSection").style.display = "block";  
+        loadApps();  
+    }  
+
+    // Load Apps from Firebase  
+    function loadApps() {  
+        database.ref("apps").on("value", snapshot => {  
+            let appsHTML = "";  
+            let appCount = 0;  
+              
+            snapshot.forEach(child => {  
+                const app = child.val();  
+                appsHTML += `  
+                    <div class="app-card" data-name="${app.name.toLowerCase()}">  
+                        <img src="${app.logo}" class="app-icon" alt="${app.name}"  
+                             onerror="this.onerror=null;this.src='https://via.placeholder.com/150/00feba/ffffff?text='+encodeURIComponent('${app.name.substring(0,2)}')">  
+                        <h3>${app.name}</h3>  
+                        <a href="${app.downloadURL}" target="_blank">  
+                            <button class="btn">𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃</button>  
+                        </a>  
+                    </div>  
+                `;  
+                appCount++;  
+            });  
+
+            document.getElementById("appsContainer").innerHTML = appsHTML ||   
+                '<div class="app-card">No apps available yet. Please check back later.</div>';  
+        });  
+    }  
+
+    // Filter Apps by Search  
+    function filterApps() {  
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();  
+        const appCards = document.querySelectorAll(".app-card");  
+          
+        appCards.forEach(card => {  
+            const appName = card.getAttribute("data-name");  
+            card.style.display = appName.includes(searchTerm) ? "block" : "none";  
+        });  
+    }  
+
+    // Initialize  
+    window.onload = function() {  
+        showSignup();  
+    };  
+</script>
+
+</body>  
+</html>
