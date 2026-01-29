@@ -1,390 +1,368 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥</title>  
-    <style>  
-        :root {  
-            --primary: #00feba;  
-            --secondary: #5b548a;  
-            --dark: #0f2027;  
-            --light: #ffffff;  
-        }  
-        * {  
-            margin: 0;  
-            padding: 0;  
-            box-sizing: border-box;  
-            font-family: 'Poppins', sans-serif;  
-        }  
-        body {  
-            background: linear-gradient(135deg, var(--dark), #203a43);  
-            color: var(--light);  
-            min-height: 100vh;  
-            padding: 20px;  
-        }  
-        .container {  
-            max-width: 500px;  
-            margin: 0 auto;  
-            padding: 20px;  
-        }  
-        header {  
-            text-align: center;  
-            margin-bottom: 30px;  
-        }  
-        .logo {  
-            width: 100px;  
-            height: 100px;  
-            border-radius: 50%;  
-            border: 3px solid var(--primary);  
-            object-fit: cover;  
-            margin: 0 auto 15px;  
-            display: block;  
-        }  
-        .company-name {  
-            font-size: 2rem;  
-            font-weight: 700;  
-            color: var(--primary);  
-            margin-bottom: 5px;  
-        }  
-        .tagline {  
-            font-size: 1rem;  
-            color: rgba(255, 255, 255, 0.7);  
-        }  
-        .form-box {  
-            background: rgba(30, 30, 30, 0.8);  
-            padding: 30px;  
-            border-radius: 15px;  
-            margin-bottom: 30px;  
-            border: 1px solid rgba(255, 255, 255, 0.1);  
-        }  
-        .form-title {  
-            text-align: center;  
-            margin-bottom: 25px;  
-            color: var(--primary);  
-        }  
-        .input-group {  
-            margin-bottom: 20px;  
-        }  
-        .input-group input {  
-            width: 100%;  
-            padding: 14px;  
-            border: none;  
-            border-radius: 8px;  
-            background: rgba(51, 51, 51, 0.7);  
-            color: var(--light);  
-        }  
-        .btn {  
-            width: 100%;  
-            padding: 14px;  
-            border: none;  
-            border-radius: 8px;  
-            background: linear-gradient(135deg, var(--primary), var(--secondary));  
-            color: white;  
-            font-weight: 600;  
-            cursor: pointer;  
-            transition: all 0.3s;  
-        }  
-        .btn:hover {  
-            transform: translateY(-3px);  
-            box-shadow: 0 10px 20px rgba(0, 254, 186, 0.3);  
-        }  
-        .form-footer {  
-            text-align: center;  
-            margin-top: 20px;  
-            color: rgba(255, 255, 255, 0.6);  
-        }  
-        .form-footer a {  
-            color: var(--primary);  
-            text-decoration: none;  
-            font-weight: 500;  
-        }  
-        .apps-section {  
-            display: none;  
-        }  
-        .app-card {  
-            background: rgba(34, 34, 34, 0.8);  
-            border-radius: 12px;  
-            padding: 20px;  
-            margin-bottom: 20px;  
-            text-align: center;  
-            transition: all 0.3s;  
-            border: 1px solid rgba(255, 255, 255, 0.1);  
-        }  
-        .app-card:hover {  
-            transform: translateY(-5px);  
-            box-shadow: 0 15px 30px rgba(0, 254, 186, 0.2);  
-        }  
-        .app-icon {  
-            width: 100px;  
-            height: 100px;  
-            border-radius: 20px;  
-            object-fit: cover;  
-            margin: 0 auto 15px;  
-            border: 3px solid var(--primary);  
-            background-color: #333;  
-        }  
-        .search-box {  
-            margin-bottom: 20px;  
-        }  
-        .search-box input {  
-            width: 100%;  
-            padding: 14px;  
-            border: none;  
-            border-radius: 8px;  
-            background: rgba(51, 51, 51, 0.7);  
-            color: var(--light);  
-        }  
-        .loader {  
-            display: none;  
-            margin: 20px auto;  
-            border: 4px solid rgba(51, 51, 51, 0.3);  
-            border-top: 4px solid var(--primary);  
-            border-radius: 50%;  
-            width: 40px;  
-            height: 40px;  
-            animation: spin 1s linear infinite;  
-        }  
-        @keyframes spin {  
-            0% { transform: rotate(0deg); }  
-            100% { transform: rotate(360deg); }  
-        }  
-        .message {  
-            text-align: center;  
-            margin: 15px 0;  
-            color: var(--primary);  
-        }  
-        footer {  
-            text-align: center;  
-            margin-top: 50px;  
-            padding-top: 20px;  
-            border-top: 1px solid rgba(255, 255, 255, 0.1);  
-            color: rgba(255, 255, 255, 0.5);  
-        }  
-    </style>  
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
-</head>  
-<body>  
-    <div class="container">  
-        <header>  
-    <img src="https://i.postimg.cc/m21SHQPr/07-42-09-images.jpg" class="logo" alt="𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥 Logo">  
-    <h1 class="company-name">𝐊𝐇𝐀𝐑𝐀𝐋  𝐌𝐎𝐃𝐒</h1>  
-    <p class="tagline">𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝒌𝒉𝒂𝒓𝒂𝒍 𝒎𝒐𝒅𝒔 𝒐𝒇𝒇𝒊𝒄𝒊𝒂𝒍 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒂𝒑𝒑𝒔 𝒕𝒐𝒐𝒍</p>  
-</header>  <div class="form-box" id="signupBox">  
-        <h2 class="form-title">Create Account</h2>  
-        <div class="input-group">  
-            <input type="email" id="email" placeholder="Your Email" required>  
-        </div>  
-        <div class="input-group">  
-            <input type="password" id="password" placeholder="Create Password" required>  
-        </div>  
-        <button class="btn" onclick="signUp()">Register</button>  
-        <div id="loader" class="loader"></div>  
-        <div id="message" class="message"></div>  
-        <p class="form-footer">  
-            Already have an account? <a href="#" onclick="showLogin()">Login here</a>  
-        </p>  
-    </div>  
+<!DOCTYPE html>
+<html lang="id">
 
-    <div class="form-box" id="loginBox" style="display:none;">  
-        <h2 class="form-title">Login</h2>  
-        <div class="input-group">  
-            <input type="email" id="loginEmail" placeholder="Your Email" required>  
-        </div>  
-        <div class="input-group">  
-            <input type="password" id="loginPass" placeholder="Your Password" required>  
-        </div>  
-        <button class="btn" onclick="loginUser()">Login</button>  
-        <div id="loaderLogin" class="loader"></div>  
-        <div id="messageLogin" class="message"></div>  
-        <p class="form-footer">  
-            New user? <a href="#" onclick="showSignup()">Register here</a>  
-        </p>  
-    </div>  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XTREXH-VORTES X RIMURU</title>
 
-    <div class="apps-section" id="appsSection">  
-        <div class="search-box">  
-            <input type="text" id="searchInput" placeholder="Search apps..." oninput="filterApps()">  
-        </div>  
-        <div id="appsContainer"></div>  
-    </div>  
-</div>  
+  <!-- Google Font & Icon -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://i.postimg.cc/nrbXwyd6/1755869815521.png" type="image/png">
 
-<footer>  
-    © 2023 𝐊𝐡𝐚𝐫𝐚𝐥 𝐌𝐨𝐝𝐬 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.  
-</footer>  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>  
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>  
-<script>  
-    // Firebase Configuration  
-    const firebaseConfig = {  
-        apiKey: "AIzaSyBIwUsxyeQmoeT2ctH2LxqRU__dhqp9s94",  
-        authDomain: "kharal-b47b6.firebaseapp.com",  
-        databaseURL: "https://kharal-b47b6-default-rtdb.firebaseio.com",  
-        projectId: "kharal-b47b6",  
-        storageBucket: "kharal-b47b6.appspot.com",  
-        messagingSenderId: "528214841740",  
-        appId: "1:528214841740:web:e394a574ef2ba2c16e9ea9"  
-    };  
+    body {
+      background: black;
+      font-family: 'Poppins', sans-serif;
+      color: #b19cd9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-    // Initialize Firebase  
-    if (!firebase.apps.length) {  
-        firebase.initializeApp(firebaseConfig);  
-    }  
-    const database = firebase.database();  
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
 
-    // Show Login Form  
-    function showLogin() {  
-        document.getElementById("signupBox").style.display = "none";  
-        document.getElementById("loginBox").style.display = "block";  
-        document.getElementById("appsSection").style.display = "none";  
-        clearMessages();  
-    }  
+    .login-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(138, 43, 226, 0.05);
+      border: 1px solid rgba(138, 43, 226, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+      animation: fadeIn 0.8s ease;
+    }
 
-    // Show Signup Form  
-    function showSignup() {  
-        document.getElementById("loginBox").style.display = "none";  
-        document.getElementById("signupBox").style.display = "block";  
-        document.getElementById("appsSection").style.display = "none";  
-        clearMessages();  
-    }  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-    // Clear Messages  
-    function clearMessages() {  
-        document.getElementById("message").innerHTML = "";  
-        document.getElementById("messageLogin").innerHTML = "";  
-    }  
+    .logo-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-    // User Registration  
-    function signUp() {  
-        const email = document.getElementById("email").value;  
-        const password = document.getElementById("password").value;  
-          
-        if (!email || !password) {  
-            document.getElementById("message").innerHTML = "Please fill all fields";  
-            return;  
-        }  
+    .logo {
+      width: 80px;
+      filter: drop-shadow(0 0 10px #8a2be2);
+      margin-bottom: 15px;
+    }
 
-        document.getElementById("loader").style.display = "block";  
-        document.getElementById("message").innerHTML = "";  
-          
-        const userId = email.replace(/[.#$[\]]/g, '_');  
-          
-        database.ref("userRequests/" + userId).set({  
-            email: email,  
-            password: password,  
-            status: "pending",  
-            registeredAt: new Date().toISOString()  
-        })  
-        .then(() => {  
-            document.getElementById("loader").style.display = "none";  
-            document.getElementById("message").innerHTML = "Registration successful! your request has ben sent to admin wait for approval.";  
-            document.getElementById("email").value = "";  
-            document.getElementById("password").value = "";  
-            setTimeout(showLogin, 2000);  
-        })  
-        .catch(error => {  
-            document.getElementById("loader").style.display = "none";  
-            document.getElementById("message").innerHTML = "Error: " + error.message;  
-        });  
-    }  
+    .title {
+      font-size: 32px;
+      color: #b88aff;
+      text-shadow: 0 0 10px #b88aff;
+      margin-bottom: 8px;
+    }
 
-    // User Login  
-    function loginUser() {  
-        const email = document.getElementById("loginEmail").value;  
-        const password = document.getElementById("loginPass").value;  
-          
-        if (!email || !password) {  
-            document.getElementById("messageLogin").innerHTML = "Please fill all fields";  
-            return;  
-        }  
+    .subtitle {
+      font-size: 14px;
+      color: #d6b3ff;
+      margin-bottom: 30px;
+    }
 
-        document.getElementById("loaderLogin").style.display = "block";  
-        document.getElementById("messageLogin").innerHTML = "";  
-          
-        const userId = email.replace(/[.#$[\]]/g, '_');  
-          
-        database.ref("userRequests/" + userId).once("value")  
-        .then(snapshot => {  
-            document.getElementById("loaderLogin").style.display = "none";  
-              
-            if (!snapshot.exists()) {  
-                document.getElementById("messageLogin").innerHTML = "User not found. Please register first.";  
-                return;  
-            }  
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
 
-            const user = snapshot.val();  
-            if (user.status !== "approved") {  
-                document.getElementById("messageLogin").innerHTML = "Account not approved yet. Please contact admin for approval.";  
-                return;  
-            }  
+    .form-group i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8a2be2;
+      font-size: 16px;
+    }
 
-            if (user.password !== password) {  
-                document.getElementById("messageLogin").innerHTML = "Incorrect password. Please try again.";  
-                return;  
-            }  
+    .form-control {
+      width: 100%;
+      padding: 14px 14px 14px 45px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(138, 43, 226, 0.1);
+      color: white;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      border: 1px solid rgba(138, 43, 226, 0.3);
+    }
 
-            document.getElementById("loginEmail").value = "";  
-            document.getElementById("loginPass").value = "";  
-            document.getElementById("messageLogin").innerHTML = "Login successful! Loading apps...";  
-            setTimeout(showApps, 1000);  
-        })  
-        .catch(error => {  
-            document.getElementById("loaderLogin").style.display = "none";  
-            document.getElementById("messageLogin").innerHTML = "Error: " + error.message;  
-        });  
-    }  
+    .form-control:focus {
+      outline: none;
+      border-color: #8a2be2;
+      box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+    }
 
-    // Show Apps Section  
-    function showApps() {  
-        document.getElementById("loginBox").style.display = "none";  
-        document.getElementById("signupBox").style.display = "none";  
-        document.getElementById("appsSection").style.display = "block";  
-        loadApps();  
-    }  
+    .form-control::placeholder {
+      color: #b19cd9;
+    }
 
-    // Load Apps from Firebase  
-    function loadApps() {  
-        database.ref("apps").on("value", snapshot => {  
-            let appsHTML = "";  
-            let appCount = 0;  
-              
-            snapshot.forEach(child => {  
-                const app = child.val();  
-                appsHTML += `  
-                    <div class="app-card" data-name="${app.name.toLowerCase()}">  
-                        <img src="${app.logo}" class="app-icon" alt="${app.name}"  
-                             onerror="this.onerror=null;this.src='https://via.placeholder.com/150/00feba/ffffff?text='+encodeURIComponent('${app.name.substring(0,2)}')">  
-                        <h3>${app.name}</h3>  
-                        <a href="${app.downloadURL}" target="_blank">  
-                            <button class="btn">𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃</button>  
-                        </a>  
-                    </div>  
-                `;  
-                appCount++;  
-            });  
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background: linear-gradient(135deg, #8a2be2, #4b0082);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 10px;
+    }
 
-            document.getElementById("appsContainer").innerHTML = appsHTML ||   
-                '<div class="app-card">No apps available yet. Please check back later.</div>';  
-        });  
-    }  
+    .btn-login:hover {
+      background: #9932cc;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(138, 43, 226, 0.4);
+    }
 
-    // Filter Apps by Search  
-    function filterApps() {  
-        const searchTerm = document.getElementById("searchInput").value.toLowerCase();  
-        const appCards = document.querySelectorAll(".app-card");  
-          
-        appCards.forEach(card => {  
-            const appName = card.getAttribute("data-name");  
-            card.style.display = appName.includes(searchTerm) ? "block" : "none";  
-        });  
-    }  
+    .btn-access {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: rgba(138, 43, 226, 0.2);
+      color: #b88aff;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(138, 43, 226, 0.3);
+    }
 
-    // Initialize  
-    window.onload = function() {  
-        showSignup();  
-    };  
-</script>
+    .btn-access:hover {
+      background: rgba(138, 43, 226, 0.3);
+      transform: translateY(-2px);
+    }
 
-</body>  
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #8a2be2;
+    }
+
+    /* Toast Notification Styles - Sama seperti di dashboard */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      background: rgba(70, 0, 120, 0.9);
+      border: 1px solid #8a2be2;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transform: translateX(100vw);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification.error {
+      background: rgba(120, 0, 0, 0.9);
+      border-color: #ff4444;
+    }
+
+    .notification.success {
+      background: rgba(0, 100, 0, 0.9);
+      border-color: #44ff44;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 30px 20px;
+        width: 95%;
+      }
+      
+      .title {
+        font-size: 28px;
+      }
+      
+      .subtitle {
+        font-size: 13px;
+      }
+      
+      .form-control {
+        padding: 12px 12px 12px 40px;
+      }
+      
+      .btn-login, .btn-access {
+        padding: 12px;
+      }
+      
+      .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        padding: 12px 15px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .title {
+        font-size: 24px;
+      }
+      
+      .form-group i {
+        left: 10px;
+      }
+      
+      .form-control {
+        padding: 10px 10px 10px 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="particles"></div>
+  
+  <div class="login-container">
+    <div class="logo-container">
+      <img src="https://i.postimg.cc/B6f69Sbq/20250828-234723.png" alt="Logo" class="logo">
+      <div class="title">XTREXH</div>
+      <div class="subtitle">Gateway to System Endpoint API Bug</div>
+    </div>
+
+    <form method="POST" action="/auth" id="loginForm">
+      <div class="form-group">
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" class="form-control" placeholder="Username" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-key"></i>
+        <input type="password" name="password" class="form-control" placeholder="Password" required />
+      </div>
+      <button type="submit" class="btn-login">
+        <i class="fas fa-lock"></i> LOGIN NOW
+      </button>
+    </form>
+
+    <!-- TOMBOL YANG DIUBAH: Sekarang mengarah ke dashboard dengan anchor #plans -->
+    <a class="btn-access" href="/#plans">
+      <i class="fas fa-crown"></i> VIEW PLANS & PRICING
+    </a>
+
+    <div class="footer">© 2024 XTREXH. All rights reserved.</div>
+  </div>
+
+  <!-- Toast notification seperti di dashboard -->
+  <div id="notification" class="notification">
+    <i class="fas fa-check-circle"></i> 
+    <span id="notification-text"></span>
+  </div>
+  
+  <script>
+    // Toast notification for messages
+    const params = new URLSearchParams(window.location.search);
+    const msg = params.get("msg");
+    const type = params.get("type") || "info"; // info, error, success
+    
+    if (msg) {
+      showNotification(decodeURIComponent(msg), type);
+    }
+    
+    // Fungsi untuk menampilkan notifikasi
+    function showNotification(message, type = "info") {
+      const notification = document.getElementById("notification");
+      const notificationText = document.getElementById("notification-text");
+      
+      // Set pesan dan tipe notifikasi
+      notificationText.textContent = message;
+      notification.className = "notification"; // Reset class
+      notification.classList.add("show");
+      
+      // Add icon based on message type
+      let icon = "fas fa-info-circle";
+      if (type === "error") {
+        icon = "fas fa-exclamation-circle";
+        notification.classList.add("error");
+      } else if (type === "success") {
+        icon = "fas fa-check-circle";
+        notification.classList.add("success");
+      }
+      
+      notification.innerHTML = `<i class="${icon}"></i> <span id="notification-text">${message}</span>`;
+      
+      // Hide toast after 5 seconds
+      setTimeout(() => {
+        notification.classList.remove("show");
+      }, 5000);
+    }
+    
+    // Prevent form resubmission on page refresh
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href.split('?')[0]);
+    }
+    
+    // Simulasi login error (untuk testing)
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      // Hanya untuk demonstrasi - di production ini akan dihandle oleh backend
+      const username = this.username.value;
+      const password = this.password.value;
+      
+      // Contoh: jika username/password salah, tampilkan error
+      if (username === "demo" && password === "error") {
+        e.preventDefault();
+        showNotification("Username atau password salah", "error");
+      }
+    });
+  </script>
+  
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/gh/jnicol/particleground/jquery.particleground.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      particleground(document.getElementById('particles'), {
+        dotColor: '#b19cd9',
+        lineColor: '#8a2be2',
+        minSpeedX: 0.1,
+        maxSpeedX: 0.3,
+        minSpeedY: 0.1,
+        maxSpeedY: 0.3,
+        density: 10000,
+        particleRadius: 3,
+      });
+    }, false);
+  </script>
+</body>
 </html>
