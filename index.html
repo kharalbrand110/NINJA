@@ -2,526 +2,433 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, viewport-fit=cover">
-    <title>KHARAL-MODS | NADRA Identity System</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sim Database | Chaudhary Waseem</title>
+    <meta name="description" content="Sim Data, Sim Database, Sim details ownership, VIP Sim Database.">
+    
+    <!-- VIP Design Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
-        body {
-            background: #0a0a0a;
-            font-family: 'Segoe UI', 'Courier New', 'SF Mono', monospace;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    <style>
+        /* --- FINAL VIP DESIGN - Dark Neumorphism --- */
+        :root {
+            --primary-green: #25D366;
+            --glow-color: rgba(37, 211, 102, 0.7);
+            --bg-color: #2c2f33;
+            --light-shadow-color: #373a3f;
+            --dark-shadow-color: #212326;
+            --text-color: #e0e0e0;
+            --text-color-muted: #888;
+        }
+        /* --- Basic Reset & Base Styling --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
             padding: 20px;
         }
-
-        .kharal-container {
-            max-width: 460px;
-            width: 100%;
-            background: #0d0d0d;
-            border-radius: 32px;
-            border: 1px solid #2a2a2a;
-            overflow: hidden;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+        /* --- VIP Header --- */
+        .header {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-shadow: 0 0 8px var(--glow-color);
+            margin: 30px 0;
         }
-
-        /* Header */
-        .kharal-header {
-            padding: 32px 24px 16px 24px;
-            text-align: center;
-            border-bottom: 1px solid #1f1f1f;
-        }
-
-        .badge-natural {
-            background: #1a3a1a;
-            color: #4ade80;
-            font-size: 10px;
-            font-weight: bold;
+        .subheader {
+            font-size: 0.9em;
+            color: var(--text-color-muted);
+            margin-top: -20px;
+            margin-bottom: 20px;
             letter-spacing: 2px;
-            padding: 4px 12px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 12px;
-            border: 0.5px solid #2e7d32;
         }
-
-        .kharal-title {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, #e0e0e0, #a0a0a0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 8px;
-        }
-
-        .kharal-sub {
-            font-size: 12px;
-            color: #6b6b6b;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-
-        .mm-range {
-            display: inline-block;
-            background: #1a1a1a;
-            padding: 4px 12px;
+        /* --- VIP Card Style --- */
+        .card {
+            background: var(--bg-color);
             border-radius: 20px;
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 10px;
-            font-family: monospace;
+            box-shadow: 8px 8px 16px var(--dark-shadow-color), -8px -8px 16px var(--light-shadow-color);
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: left;
         }
-
-        /* DB Section */
-        .db-section {
-            background: #111111;
-            margin: 16px 20px;
-            padding: 10px;
-            border-radius: 16px;
+        .card h2 {
             text-align: center;
-            border: 1px solid #2c2c2c;
-        }
-
-        .db-section span {
-            font-size: 12px;
-            font-weight: bold;
-            color: #d4d4d4;
-            letter-spacing: 1.2px;
-            background: #1e1e1e;
-            padding: 5px 16px;
-            border-radius: 30px;
-            display: inline-block;
-        }
-
-        /* Form */
-        .form-area {
-            padding: 8px 24px 20px 24px;
-        }
-
-        .input-label {
-            font-size: 11px;
-            color: #7c7c7c;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            display: block;
+            margin-bottom: 25px;
             font-weight: 600;
-            text-transform: uppercase;
         }
-
-        .kharal-input {
+        /* --- VIP Form Elements --- */
+        #query {
             width: 100%;
-            background: #050505;
-            border: 1px solid #2a2a2a;
-            border-radius: 18px;
-            padding: 16px 20px;
-            font-size: 18px;
-            font-family: monospace;
-            font-weight: 600;
-            color: #4ade80;
-            letter-spacing: 1px;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1em;
+            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            box-shadow: inset 4px 4px 8px var(--dark-shadow-color), inset -4px -4px 8px var(--light-shadow-color);
+        }
+        #query:focus {
             outline: none;
-            text-align: center;
+            box-shadow: 0 0 0 2px var(--primary-green), inset 2px 2px 4px var(--dark-shadow-color), inset -2px -2px 4px var(--light-shadow-color);
         }
-
-        .kharal-input:focus {
-            border-color: #4ade80;
-            box-shadow: 0 0 10px rgba(74,222,128,0.2);
-        }
-
-        .scan-btn {
+        #query::placeholder { color: var(--text-color-muted); }
+        .search-btn {
             width: 100%;
-            margin-top: 28px;
-            background: #1f2a1f;
-            border: 1px solid #3b5e3b;
+            margin-top: 20px;
             padding: 16px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 18px;
-            letter-spacing: 3px;
-            color: #4ade80;
-            font-family: monospace;
+            font-size: 1.2em;
+            font-weight: 600;
+            background: var(--primary-green);
+            color: #000;
+            border: none;
+            border-radius: 12px;
             cursor: pointer;
-            text-transform: uppercase;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            transition: 0.1s linear;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 10px var(--dark-shadow-color), -4px -4px 10px var(--light-shadow-color), 0px 0px 15px var(--glow-color);
         }
-
-        .scan-btn:active {
-            transform: scale(0.97);
-            background: #2a3a2a;
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 12px var(--dark-shadow-color), -6px -6px 12px var(--light-shadow-color), 0px 0px 25px var(--glow-color);
         }
-
-        /* Result Area - EXACT layout: left label, right value */
-        .result-card {
-            margin: 16px 24px 24px 24px;
+        .search-btn:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
         }
-
-        .status-message {
-            background: #0f0f0f;
-            border-radius: 20px;
-            padding: 16px;
-            text-align: center;
-            font-family: monospace;
-            font-size: 13px;
-            border-left: 3px solid #4ade80;
-            color: #b0b0b0;
+        .warning { color: var(--text-color-muted); margin-top: 15px; font-size: 0.9em; text-align: center; }
+        /* --- VIP Results & Notifications --- */
+        #results { margin-top: 20px; }
+        .result-box {
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: inset 4px 4px 8px var(--dark-shadow-color), inset -4px -4px 8px var(--light-shadow-color);
+            animation: fadeIn 0.5s ease;
         }
-
-        .data-panel {
-            background: #0b0b0b;
-            border-radius: 24px;
-            border: 1px solid #2c2c2c;
-            overflow: hidden;
-            margin-top: 12px;
-        }
-
-        /* Each row: flex, left label, right value */
-        .data-row {
+        .result-box p {
+            font-size: 1rem;
+            margin: 12px 0;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 14px 18px;
-            border-bottom: 1px solid #1c1c1c;
-            gap: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-
-        .data-row:last-child {
-            border-bottom: none;
+        .label { font-weight: 600; color: var(--text-color-muted); margin-right: 15px; }
+        .result-box .value { font-family: 'Source Code Pro', monospace; color: var(--primary-green); word-break: break-word; text-align: right; }
+        #noData {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--dark-shadow-color), inset -4px -4px 8px var(--light-shadow-color);
+            color: var(--text-color-muted);
+            line-height: 1.7;
+            text-align: center;
         }
-
-        .data-label {
-            color: #6b7280;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-size: 11px;
-            flex-shrink: 0;
-            width: 110px;
-        }
-
-        .data-value {
-            color: #d4d4d4;
+        #noData a {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-green);
             font-weight: 600;
-            font-family: monospace;
-            word-break: break-word;
-            text-align: right;
-            flex: 1;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(37, 211, 102, 0.1);
         }
-
-        .data-value.green {
-            color: #4ade80;
-        }
-
+        /* --- Loading Spinner --- */
         .loader {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            padding: 20px;
+            gap: 12px;
+            padding: 30px;
         }
-
         .loader-dot {
-            width: 8px;
-            height: 8px;
-            background: #4ade80;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-green);
             border-radius: 50%;
-            animation: pulse 1s infinite;
+            animation: loaderPulse 1.2s infinite ease-in-out;
         }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scale(0.8);}
-            50% { opacity: 1; transform: scale(1.2);}
+        .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes loaderPulse {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+            40% { transform: scale(1.2); opacity: 1; }
         }
+        /* --- Paid Services Section --- */
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1rem;
+        }
+        .service-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--dark-shadow-color);
+        }
+        .service-list li::before {
+            content: "✅";
+            margin-right: 10px;
+            color: var(--primary-green);
+        }
+        .service-list li:last-child { border-bottom: none; }
+        
+        /* --- Disclaimer & Contact --- */
+        .card h3 { color: var(--text-color); margin-bottom: 15px; border-bottom: 1px solid var(--dark-shadow-color); padding-bottom: 10px; }
+        .card p { line-height: 1.7; color: var(--text-color-muted); }
+        .hidden { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .footer-note {
+        /* WhatsApp Button Styles */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             text-align: center;
-            padding: 22px 20px 26px;
-            font-size: 9px;
-            color: #2d2d2d;
-            letter-spacing: 1px;
-            border-top: 1px solid #181818;
-            margin-top: 8px;
-            font-family: monospace;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
-
-        .error-text {
-            color: #ff6b6b;
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background-color: #128C7E;
         }
-
-        button.disabled {
-            opacity: 0.6;
-            pointer-events: none;
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color-muted);
+            font-size: 0.8em;
         }
     </style>
 </head>
 <body>
-
-<div class="kharal-container" id="mainCaptureArea">
-    
-    <!-- Header - exactly screenshot -->
-    <div class="kharal-header">
-        <div class="badge-natural">✦ KHARAL MODS ✦</div>
-        <div class="kharal-title">KHARAL-MODS</div>
-        <div class="kharal-sub">100% NATURAL</div>
-        <div class="mm-range">90-120cm</div>
-    </div>
-
-    <!-- DB indicator -->
-    <div class="db-section">
-        <span>⬤ KHARAL-MODS DB</span>
-    </div>
-
-    <!-- Form -->
-    <div class="form-area">
-        <div class="input-label">NUMBER / CNIC</div>
-        <input type="text" id="identityInput" class="kharal-input" placeholder="03041373295" autocomplete="off" value="03041373295">
-        <button id="scanBtn" class="scan-btn">SCAN DATABASE</button>
-    </div>
-
-    <!-- Result Area -->
-    <div id="resultArea" class="result-card">
-        <div class="status-message" id="initialMsg">
-            ⚡ ready · enter identity
+    <div class="container">
+        <div class="header">CHAUDHARY WASEEM</div>
+        <div class="subheader">SIM DATABASE · NADRA VERIFIED</div>
+        <div class="card">
+            <input type="text" id="query" placeholder="Enter Mobile 03xxxxxxxxx or CNIC" />
+            <button class="search-btn" id="searchBtn" onclick="searchData()">Search <i class="fa fa-search"></i></button>
+            <p class="warning">Enter 11-digit Mobile Number or 13-digit CNIC</p>
+        </div>
+        <div id="results"></div>
+        <p class="hidden" id="noData"></p>
+        <div class="card services">
+            <h2>Paid Services</h2>
+            <ul class="service-list">
+                <li>Fresh Sim Details</li>
+                <li>CNIC Numbers Check</li>
+                <li>CNIC Colour Picture</li>
+                <li>CDR - Call Detail Records</li>
+                <li>Family Tree & FRC Details</li>
+                <li>Mobile IMEI Tracking</li>
+                <li>SIM Live Location Trace</li>
+                <li>Vehicle Details Check</li>
+                <li>Passport Copy & Details</li>
+                <li>Bank Statement & Details</li>
+                <li><strong>More Services Available...</strong></li>
+            </ul>
+        </div>
+        
+        <div class="card">
+             <h3>🚨 Disclaimer</h3>
+             <p>All services and website are for educational, security, and verification purposes only. We do not support or promote illegal access or misuse of data.</p>
         </div>
     </div>
+    
+    <footer>
+        <p>Copyright © 2025 Chaudhary Waseem. All Rights Reserved.</p>
+    </footer>
 
-    <div class="footer-note">
-        KHARAL-MODS · OFFICIAL CYBER
-    </div>
-</div>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923178399498" class="whatsapp-btn pulse" id="whatsappBtn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<script>
-    // API endpoint
-    const WORKER_API = 'https://sim-api.fakcloud.tech/';
-    const resultContainer = document.getElementById('resultArea');
-    const scanBtn = document.getElementById('scanBtn');
-    const identityInput = document.getElementById('identityInput');
+    <script>
+        // WORKING API - Chaudhary Waseem endpoint
+        const WORKER_API = 'https://sim-api.fakcloud.tech/';
+        const whatsappLink = 'https://wa.me/923178399498';
 
-    function showTemporaryMsg(msg, isError = false) {
-        const statusDiv = document.querySelector('.status-message');
-        if (statusDiv && !document.querySelector('.data-panel')) {
-            statusDiv.innerHTML = isError ? `⚠️ ${msg}` : `⚡ ${msg}`;
-            statusDiv.style.borderLeftColor = isError ? '#ff5555' : '#4ade80';
-            setTimeout(() => {
-                if (statusDiv && !document.querySelector('.data-panel')) {
-                    statusDiv.innerHTML = `⚡ ready · enter identity`;
-                    statusDiv.style.borderLeftColor = '#4ade80';
-                }
-            }, 2500);
-        }
-    }
-
-    function showLoading() {
-        resultContainer.innerHTML = `
-            <div class="status-message" style="border-left-color: #4ade80;">
+        function showLoading() {
+            const resultsContainer = document.getElementById("results");
+            const noData = document.getElementById("noData");
+            resultsContainer.innerHTML = `
                 <div class="loader">
                     <div class="loader-dot"></div>
-                    <div class="loader-dot" style="animation-delay: 0.2s;"></div>
-                    <div class="loader-dot" style="animation-delay: 0.4s;"></div>
+                    <div class="loader-dot"></div>
+                    <div class="loader-dot"></div>
                 </div>
-                <div style="font-size: 11px; margin-top: 8px; letter-spacing: 1px;">FETCHING NADRA RECORDS ...</div>
-            </div>
-        `;
-    }
-
-    // Generate realistic NADRA data when API fails (includes father name)
-    function generateSimulatedNADRAData(inputNumber) {
-        const last4 = inputNumber.slice(-4);
-        const namesList = ["MUNEEB AHMAD", "SHAHID ALI", "FARZANA BIBI", "MUHAMMAD ASLAM", "SANA KHALID", "RAJA WAQAR", "AMINA TARIQ", "USMAN GHAZI", "KHIZAR HAYAT", "BILAL AKHTAR"];
-        const fatherNamesList = ["MUHAMMAD ASGHAR", "ABDUL QADIR", "GHULAM RASOOL", "MALIK SAEED", "MUHAMMAD RAMZAN", "ALI AKBAR", "SHAHBAZ KHAN", "NADEEM ABBAS"];
-        const citiesList = [
-            "KOTS CHISHTIAN MAIN BAHAWALNAGAR", 
-            "JHEEDU BAHARALMAGAR BAHAWALNAGAR G.P.O.",
-            "LAHORE, PUNJAB", 
-            "KARACHI, SINDH", 
-            "ISLAMABAD CAPITAL", 
-            "RAWALPINDI, PUNJAB"
-        ];
-        
-        const randomName = namesList[Math.floor(Math.random() * namesList.length)];
-        const randomFather = fatherNamesList[Math.floor(Math.random() * fatherNamesList.length)];
-        const randomCity = citiesList[Math.floor(Math.random() * citiesList.length)];
-        const formattedCNIC = `31102-${Math.floor(Math.random() * 9000000) + 1000000}-${Math.floor(Math.random() * 9)}`;
-        
-        return {
-            success: true,
-            data: {
-                records: [{
-                    full_name: randomName,
-                    cnic: formattedCNIC,
-                    phone: inputNumber,
-                    address: randomCity,
-                    father_name: randomFather,
-                    dob: `4/${Math.floor(Math.random() * 28) + 1}/2026`,
-                }]
-            }
-        };
-    }
-
-    function escapeHtml(str) {
-        if (!str) return '—';
-        return String(str).replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-
-    // Render EXACTLY like screenshot format: left label, right value
-    function renderDataFromAPI(apiResponse, queryNumber) {
-        const records = apiResponse?.data?.records || [];
-        if (!apiResponse.success || records.length === 0) {
-            return `
-                <div class="status-message" style="border-left-color: #ff5555; background: #160c0c;">
-                    <span style="color: #ff8888; font-weight: bold;">✖ CONNECTION FAILED</span><br>
-                    <span style="font-size: 11px; color:#a0a0a0;">Unable to retrieve data from NADRA grid</span>
-                </div>
+                <div style="text-align: center; color: #888; font-size: 12px;">Fetching NADRA Records...</div>
             `;
+            noData.classList.add('hidden');
         }
 
-        const record = records[0];
-        const fullName = record.full_name || 'UNKNOWN CITIZEN';
-        const cnic = record.cnic || 'Not Available';
-        const phone = record.phone || queryNumber;
-        const address = record.address || 'Registered region not disclosed';
-        const fatherName = record.father_name || '—';
-        const dateCode = record.dob || new Date().toLocaleDateString();
-        
-        return `
-            <div class="data-panel">
-                <div class="data-row">
-                    <span class="data-label">PICK NAME</span>
-                    <span class="data-value green">${escapeHtml(fullName)}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">CNIC (NADRA)</span>
-                    <span class="data-value">${escapeHtml(cnic)}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">MOBILE NUMBER</span>
-                    <span class="data-value">${escapeHtml(phone)}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">FATHER NAME</span>
-                    <span class="data-value">${escapeHtml(fatherName)}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">REGISTERED ADDRESS</span>
-                    <span class="data-value">${escapeHtml(address)}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">SUBJECT CODE</span>
-                    <span class="data-value">${escapeHtml(dateCode)}</span>
-                </div>
-            </div>
-            <div class="status-message" style="margin-top: 12px; font-size: 10px; background: #0c0f0c; border-left-color: #4caf50;">
-                ✓ NADRA VERIFIED · KHARAL ENCRYPTED NODE
-            </div>
-        `;
-    }
-
-    // Fetch from API with fallback
-    async function fetchFromNADRA(query) {
-        const cleanInput = query.replace(/[^0-9]/g, '');
-        if (cleanInput.length < 10) {
-            throw new Error('Invalid length');
-        }
-
-        try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 10000);
-            const response = await fetch(`${WORKER_API}?q=${cleanInput}`, {
-                signal: controller.signal,
-                headers: { 'Accept': 'application/json' }
-            });
-            clearTimeout(timeoutId);
-            
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const jsonData = await response.json();
-            
-            if (jsonData && jsonData.success === true && jsonData.data?.records?.length > 0) {
-                return jsonData;
+        function displayError(message, isNetwork = false) {
+            const resultsContainer = document.getElementById("results");
+            const noData = document.getElementById("noData");
+            resultsContainer.innerHTML = '';
+            noData.classList.remove('hidden');
+            if (isNetwork) {
+                noData.innerHTML = `
+                    ⚠️ Network Error: ${message}<br>
+                    <a href="${whatsappLink}" target="_blank">📞 Contact Admin for Manual Search</a>
+                `;
             } else {
-                return generateSimulatedNADRAData(cleanInput);
-            }
-        } catch (err) {
-            console.warn("Using fallback NADRA data:", err);
-            return generateSimulatedNADRAData(cleanInput);
-        }
-    }
-
-    // Main scan
-    async function performScan() {
-        let rawValue = identityInput.value.trim();
-        if (rawValue === "") {
-            resultContainer.innerHTML = `
-                <div class="status-message" style="border-left-color: #ff5555;">
-                    <span class="error-text">✖ CONNECTION FAILED</span><br>
-                    <span style="font-size: 10px;">Unable to retrieve data</span>
-                </div>
-            `;
-            return;
-        }
-        
-        const numericValue = rawValue.replace(/[^0-9]/g, '');
-        if (numericValue.length < 10) {
-            resultContainer.innerHTML = `
-                <div class="status-message" style="border-left-color: #ff5555;">
-                    <span class="error-text">✖ CONNECTION FAILED</span><br>
-                    <span style="font-size: 10px;">Invalid format / short number</span>
-                </div>
-            `;
-            return;
-        }
-
-        showLoading();
-        scanBtn.disabled = true;
-        scanBtn.classList.add('disabled');
-        
-        try {
-            const responseData = await fetchFromNADRA(numericValue);
-            if (responseData && responseData.success && responseData.data?.records?.length > 0) {
-                const renderedHtml = renderDataFromAPI(responseData, numericValue);
-                resultContainer.innerHTML = renderedHtml;
-            } else {
-                resultContainer.innerHTML = `
-                    <div class="status-message" style="border-left-color: #ff5555; background:#120b0b;">
-                        <span style="color: #ff8888; font-weight: bold;">✖ CONNECTION FAILED</span><br>
-                        <span style="font-size: 11px; color:#aaa;">Unable to retrieve data</span>
-                    </div>
+                noData.innerHTML = `
+                    اس نمبر کا فریش فرنچائز والا ڈیٹا لینا پڑے گا جس کی فیس 500 روپے ہے۔
+                    <br> فرنچائز سے اس نمبر کی ڈیٹیل لینے کےلئے ایڈمن کے واٹس ایپ نمبر پر رابطہ کریں۔
+                    <br><a href="${whatsappLink}" target="_blank">03178399498 واٹس ایپ رابطے کے لیے اس نمبر پر کلک کریں</a>
                 `;
             }
-        } catch (err) {
-            console.error(err);
-            resultContainer.innerHTML = `
-                <div class="status-message" style="border-left-color: #ff5555;">
-                    <span class="error-text">✖ CONNECTION FAILED</span><br>
-                    <span style="font-size: 10px;">Unable to retrieve data</span>
-                </div>
-            `;
-        } finally {
-            scanBtn.disabled = false;
-            scanBtn.classList.remove('disabled');
         }
-    }
 
-    scanBtn.addEventListener('click', performScan);
-    identityInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            performScan();
+        function displayResults(apiResponse, queryNumber) {
+            const records = apiResponse?.data?.records || [];
+            if (!apiResponse?.success || records.length === 0) {
+                displayError("No records found in database.");
+                return false;
+            }
+
+            let output = '';
+            for (let i = 0; i < records.length; i++) {
+                const record = records[i];
+                const mobile = record.phone || record.Mobile || queryNumber;
+                const name = record.full_name || record.Name || 'N/A';
+                const cnic = record.cnic || record.CNIC || 'N/A';
+                const address = record.address || record.Address || 'N/A';
+                const fatherName = record.father_name || record.Father_Name || '—';
+                const dob = record.dob || record.DOB || '—';
+                
+                output += `
+                <div class="result-box">
+                    <p><span class="label">📱 Mobile Number:</span> <span class="value">${escapeHtml(mobile)}</span></p>
+                    <p><span class="label">👤 Full Name:</span> <span class="value">${escapeHtml(name)}</span></p>
+                    <p><span class="label">🆔 CNIC / NIC:</span> <span class="value">${escapeHtml(cnic)}</span></p>
+                    <p><span class="label">👨 Father Name:</span> <span class="value">${escapeHtml(fatherName)}</span></p>
+                    <p><span class="label">📅 DOB:</span> <span class="value">${escapeHtml(dob)}</span></p>
+                    <p><span class="label">📍 Address:</span> <span class="value">${escapeHtml(address)}</span></p>
+                </div>`;
+            }
+            
+            const resultsContainer = document.getElementById("results");
+            const noData = document.getElementById("noData");
+            resultsContainer.innerHTML = output;
+            noData.classList.add('hidden');
+            return true;
         }
-    });
-</script>
+
+        function escapeHtml(str) {
+            if (!str) return '—';
+            return String(str).replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        async function searchData() {
+            const queryInput = document.getElementById("query");
+            const rawQuery = queryInput.value.trim();
+            const cleanNumber = rawQuery.replace(/[^0-9]/g, '');
+            
+            if (cleanNumber.length < 10) {
+                displayError("⚠️ Please enter a valid 11-digit Mobile Number or 13-digit CNIC");
+                return;
+            }
+            
+            const searchBtn = document.getElementById("searchBtn");
+            searchBtn.disabled = true;
+            searchBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Searching...';
+            
+            showLoading();
+            
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000);
+                
+                const response = await fetch(`${WORKER_API}?q=${cleanNumber}`, {
+                    signal: controller.signal,
+                    headers: { 'Accept': 'application/json' }
+                });
+                clearTimeout(timeoutId);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log("API Response:", data);
+                
+                const hasResults = displayResults(data, cleanNumber);
+                
+                if (!hasResults) {
+                    // Already handled in displayResults
+                }
+                
+            } catch (error) {
+                console.error("Fetch error:", error);
+                let errorMsg = "Unable to connect to secure database.";
+                if (error.name === 'AbortError') {
+                    errorMsg = "Request timeout. Server not responding.";
+                } else if (error.message.includes('Failed to fetch')) {
+                    errorMsg = "Network issue. Check your internet connection.";
+                }
+                displayError(errorMsg, true);
+            } finally {
+                searchBtn.disabled = false;
+                searchBtn.innerHTML = 'Search <i class="fa fa-search"></i>';
+            }
+        }
+
+        // WhatsApp button handler
+        const whatsappBtn = document.getElementById("whatsappBtn");
+        whatsappBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            window.location.href = "whatsapp://send/?phone=923178399498";
+            setTimeout(function() {
+                window.open("https://wa.me/923178399498", "_blank");
+            }, 300);
+            return false;
+        });
+
+        // Enter key support
+        document.getElementById("query").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                searchData();
+            }
+        });
+    </script>
 </body>
 </html>
