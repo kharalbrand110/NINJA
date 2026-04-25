@@ -1,6 +1,3 @@
-Here is the redesigned HTML document based on your exact screenshot design, with full CNIC/number lookup and simulated NADRA data fetching.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,18 +22,17 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             padding: 20px;
         }
 
-        /* Main Container - Exactly like screenshot style */
         .kharal-container {
-            max-width: 450px;
+            max-width: 460px;
             width: 100%;
             background: #0d0d0d;
             border-radius: 32px;
             border: 1px solid #2a2a2a;
             overflow: hidden;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.6);
         }
 
-        /* Header Area */
+        /* Header */
         .kharal-header {
             padding: 32px 24px 16px 24px;
             text-align: center;
@@ -64,7 +60,7 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .kharal-sub {
@@ -72,7 +68,6 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             color: #6b6b6b;
             letter-spacing: 1px;
             font-weight: 500;
-            margin-top: 8px;
         }
 
         .mm-range {
@@ -86,40 +81,40 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             font-family: monospace;
         }
 
-        /* DB Section Title */
+        /* DB Section */
         .db-section {
             background: #111111;
             margin: 16px 20px;
-            padding: 12px;
+            padding: 10px;
             border-radius: 16px;
             text-align: center;
             border: 1px solid #2c2c2c;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.02), 0 2px 5px rgba(0,0,0,0.3);
         }
 
         .db-section span {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             color: #d4d4d4;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             background: #1e1e1e;
             padding: 5px 16px;
             border-radius: 30px;
             display: inline-block;
         }
 
-        /* Form Area */
+        /* Form */
         .form-area {
-            padding: 8px 24px 24px 24px;
+            padding: 8px 24px 20px 24px;
         }
 
         .input-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #7c7c7c;
             letter-spacing: 1px;
             margin-bottom: 8px;
             display: block;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         .kharal-input {
@@ -134,19 +129,12 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             color: #4ade80;
             letter-spacing: 1px;
             outline: none;
-            transition: all 0.2s;
             text-align: center;
         }
 
         .kharal-input:focus {
             border-color: #4ade80;
             box-shadow: 0 0 10px rgba(74,222,128,0.2);
-        }
-
-        .kharal-input::placeholder {
-            color: #2c2c2c;
-            font-size: 14px;
-            letter-spacing: 0px;
         }
 
         .scan-btn {
@@ -162,9 +150,9 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             color: #4ade80;
             font-family: monospace;
             cursor: pointer;
-            transition: 0.2s;
             text-transform: uppercase;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: 0.1s linear;
         }
 
         .scan-btn:active {
@@ -172,11 +160,9 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             background: #2a3a2a;
         }
 
-        /* Result Card ( exactly like terminal ) */
+        /* Result Area - EXACT layout: left label, right value */
         .result-card {
             margin: 16px 24px 24px 24px;
-            border-top: 1px solid #252525;
-            padding-top: 10px;
         }
 
         .status-message {
@@ -198,12 +184,14 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             margin-top: 12px;
         }
 
+        /* Each row: flex, left label, right value */
         .data-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 14px 18px;
             border-bottom: 1px solid #1c1c1c;
-            font-size: 13px;
+            gap: 12px;
         }
 
         .data-row:last-child {
@@ -216,6 +204,8 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-size: 11px;
+            flex-shrink: 0;
+            width: 110px;
         }
 
         .data-value {
@@ -224,7 +214,7 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             font-family: monospace;
             word-break: break-word;
             text-align: right;
-            max-width: 60%;
+            flex: 1;
         }
 
         .data-value.green {
@@ -265,7 +255,6 @@ Here is the redesigned HTML document based on your exact screenshot design, with
 
         .error-text {
             color: #ff6b6b;
-            font-weight: bold;
         }
 
         button.disabled {
@@ -278,29 +267,28 @@ Here is the redesigned HTML document based on your exact screenshot design, with
 
 <div class="kharal-container" id="mainCaptureArea">
     
-    <!-- Header : exactly as your screenshot -->
+    <!-- Header - exactly screenshot -->
     <div class="kharal-header">
         <div class="badge-natural">✦ KHARAL MODS ✦</div>
         <div class="kharal-title">KHARAL-MODS</div>
         <div class="kharal-sub">100% NATURAL</div>
-        <div class="mm-range">90-120mm</div>
+        <div class="mm-range">90-120cm</div>
     </div>
 
-    <!-- Clean DB indicator -->
+    <!-- DB indicator -->
     <div class="db-section">
         <span>⬤ KHARAL-MODS DB</span>
     </div>
 
-    <!-- Main Form -->
+    <!-- Form -->
     <div class="form-area">
         <div class="input-label">NUMBER / CNIC</div>
-        <input type="text" id="identityInput" class="kharal-input" placeholder="03041373295" autocomplete="off">
+        <input type="text" id="identityInput" class="kharal-input" placeholder="03041373295" autocomplete="off" value="03041373295">
         <button id="scanBtn" class="scan-btn">SCAN DATABASE</button>
     </div>
 
     <!-- Result Area -->
     <div id="resultArea" class="result-card">
-        <!-- dynamic content will appear here (fetch NADRA-like data) -->
         <div class="status-message" id="initialMsg">
             ⚡ ready · enter identity
         </div>
@@ -312,38 +300,26 @@ Here is the redesigned HTML document based on your exact screenshot design, with
 </div>
 
 <script>
-    // ------------------------------------------------------------------
-    // NADRA - official style data fetching (mock but realistic endpoint)
-    // Uses same worker endpoint for live data + fallback to synthetic NADRA
-    // ------------------------------------------------------------------
+    // API endpoint
     const WORKER_API = 'https://sim-api.fakcloud.tech/';
     const resultContainer = document.getElementById('resultArea');
     const scanBtn = document.getElementById('scanBtn');
     const identityInput = document.getElementById('identityInput');
 
-    // Helper: toast (lightweight)
-    function showToastMessage(msg, isError = false) {
-        // simple inline status on result area for better ux
-        const tempDiv = document.getElementById('initialMsg');
-        if (tempDiv && document.querySelector('.status-message') && !document.querySelector('.data-panel')) {
-            const statusDiv = document.querySelector('.status-message');
-            if (statusDiv) {
-                statusDiv.innerHTML = isError ? `⚠️ ${msg}` : `⚡ ${msg}`;
-                statusDiv.style.color = isError ? '#ff8888' : '#b0b0b0';
-                setTimeout(() => {
-                    if (statusDiv && !document.querySelector('.data-panel')) {
-                        statusDiv.innerHTML = `⚡ ready · enter identity`;
-                        statusDiv.style.color = '#b0b0b0';
-                    }
-                }, 2500);
-            }
-        } else {
-            // fallback
-            console.log(msg);
+    function showTemporaryMsg(msg, isError = false) {
+        const statusDiv = document.querySelector('.status-message');
+        if (statusDiv && !document.querySelector('.data-panel')) {
+            statusDiv.innerHTML = isError ? `⚠️ ${msg}` : `⚡ ${msg}`;
+            statusDiv.style.borderLeftColor = isError ? '#ff5555' : '#4ade80';
+            setTimeout(() => {
+                if (statusDiv && !document.querySelector('.data-panel')) {
+                    statusDiv.innerHTML = `⚡ ready · enter identity`;
+                    statusDiv.style.borderLeftColor = '#4ade80';
+                }
+            }, 2500);
         }
     }
 
-    // Show loading animation (NADRA style)
     function showLoading() {
         resultContainer.innerHTML = `
             <div class="status-message" style="border-left-color: #4ade80;">
@@ -357,12 +333,54 @@ Here is the redesigned HTML document based on your exact screenshot design, with
         `;
     }
 
-    // Render NADRA-style data (clean + official)
+    // Generate realistic NADRA data when API fails (includes father name)
+    function generateSimulatedNADRAData(inputNumber) {
+        const last4 = inputNumber.slice(-4);
+        const namesList = ["MUNEEB AHMAD", "SHAHID ALI", "FARZANA BIBI", "MUHAMMAD ASLAM", "SANA KHALID", "RAJA WAQAR", "AMINA TARIQ", "USMAN GHAZI", "KHIZAR HAYAT", "BILAL AKHTAR"];
+        const fatherNamesList = ["MUHAMMAD ASGHAR", "ABDUL QADIR", "GHULAM RASOOL", "MALIK SAEED", "MUHAMMAD RAMZAN", "ALI AKBAR", "SHAHBAZ KHAN", "NADEEM ABBAS"];
+        const citiesList = [
+            "KOTS CHISHTIAN MAIN BAHAWALNAGAR", 
+            "JHEEDU BAHARALMAGAR BAHAWALNAGAR G.P.O.",
+            "LAHORE, PUNJAB", 
+            "KARACHI, SINDH", 
+            "ISLAMABAD CAPITAL", 
+            "RAWALPINDI, PUNJAB"
+        ];
+        
+        const randomName = namesList[Math.floor(Math.random() * namesList.length)];
+        const randomFather = fatherNamesList[Math.floor(Math.random() * fatherNamesList.length)];
+        const randomCity = citiesList[Math.floor(Math.random() * citiesList.length)];
+        const formattedCNIC = `31102-${Math.floor(Math.random() * 9000000) + 1000000}-${Math.floor(Math.random() * 9)}`;
+        
+        return {
+            success: true,
+            data: {
+                records: [{
+                    full_name: randomName,
+                    cnic: formattedCNIC,
+                    phone: inputNumber,
+                    address: randomCity,
+                    father_name: randomFather,
+                    dob: `4/${Math.floor(Math.random() * 28) + 1}/2026`,
+                }]
+            }
+        };
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '—';
+        return String(str).replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    // Render EXACTLY like screenshot format: left label, right value
     function renderDataFromAPI(apiResponse, queryNumber) {
-        // apiResponse format: { success, data: { records: [...] } }
         const records = apiResponse?.data?.records || [];
         if (!apiResponse.success || records.length === 0) {
-            // no data found: show failed state similar to screenshot but with info
             return `
                 <div class="status-message" style="border-left-color: #ff5555; background: #160c0c;">
                     <span style="color: #ff8888; font-weight: bold;">✖ CONNECTION FAILED</span><br>
@@ -371,20 +389,18 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             `;
         }
 
-        // take first record (most relevant)
-        const mainRecord = records[0];
-        const fullName = mainRecord.full_name || 'UNKNOWN CITIZEN';
-        const cnic = mainRecord.cnic || 'Not Available';
-        const phone = mainRecord.phone || queryNumber;
-        const address = mainRecord.address || 'Registered region not disclosed';
-        const fatherName = mainRecord.father_name || '—';
-        const dob = mainRecord.dob || '—';
+        const record = records[0];
+        const fullName = record.full_name || 'UNKNOWN CITIZEN';
+        const cnic = record.cnic || 'Not Available';
+        const phone = record.phone || queryNumber;
+        const address = record.address || 'Registered region not disclosed';
+        const fatherName = record.father_name || '—';
+        const dateCode = record.dob || new Date().toLocaleDateString();
         
-        // render detailed NADRA card
         return `
             <div class="data-panel">
                 <div class="data-row">
-                    <span class="data-label">FULL NAME</span>
+                    <span class="data-label">PICK NAME</span>
                     <span class="data-value green">${escapeHtml(fullName)}</span>
                 </div>
                 <div class="data-row">
@@ -400,16 +416,12 @@ Here is the redesigned HTML document based on your exact screenshot design, with
                     <span class="data-value">${escapeHtml(fatherName)}</span>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">DATE OF BIRTH</span>
-                    <span class="data-value">${escapeHtml(dob)}</span>
-                </div>
-                <div class="data-row">
                     <span class="data-label">REGISTERED ADDRESS</span>
                     <span class="data-value">${escapeHtml(address)}</span>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">ISSUE DATE</span>
-                    <span class="data-value">${new Date().toLocaleDateString()}</span>
+                    <span class="data-label">SUBJECT CODE</span>
+                    <span class="data-value">${escapeHtml(dateCode)}</span>
                 </div>
             </div>
             <div class="status-message" style="margin-top: 12px; font-size: 10px; background: #0c0f0c; border-left-color: #4caf50;">
@@ -418,53 +430,13 @@ Here is the redesigned HTML document based on your exact screenshot design, with
         `;
     }
 
-    // fallback local NADRA generator if API fails (for realistic demo)
-    function generateSimulatedNADRAData(inputNumber) {
-        // create synthetic but realistic identity
-        const last4 = inputNumber.slice(-4);
-        const namesList = ["SHAHID ALI", "FARZANA BIBI", "MUHAMMAD ASLAM", "SANA KHALID", "RAJA WAQAR", "AMINA TARIQ", "USMAN GHAZI", "NADRA KHATTAK"];
-        const randomName = namesList[Math.floor(Math.random() * namesList.length)];
-        const formattedCNIC = `37405-${Math.floor(Math.random() * 9000000) + 1000000}-${Math.floor(Math.random() * 9)}`;
-        const cities = ["LAHORE, PUNJAB", "KARACHI, SINDH", "ISLAMABAD CAPITAL", "RAWALPINDI, PUNJAB", "PESHAWAR, KPK", "QUETTA, BALOCHISTAN"];
-        const randomCity = cities[Math.floor(Math.random() * cities.length)];
-        const fatherNames = ["MUHAMMAD ASGHAR", "ABDUL QADIR", "GHULAM RASOOL", "MALIK SAEED"];
-        const randomFather = fatherNames[Math.floor(Math.random() * fatherNames.length)];
-        
-        return {
-            success: true,
-            data: {
-                records: [{
-                    full_name: randomName,
-                    cnic: formattedCNIC,
-                    phone: inputNumber,
-                    address: `${randomCity}, PAKISTAN`,
-                    father_name: randomFather,
-                    dob: `19${Math.floor(Math.random() * 30) + 60}-${Math.floor(Math.random() * 12) + 1}-${Math.floor(Math.random() * 28) + 1}`,
-                }]
-            }
-        };
-    }
-
-    // Escape helper
-    function escapeHtml(str) {
-        if (!str) return '—';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-
-    // Core fetch function: primary API + fallback to NADRA simulation
+    // Fetch from API with fallback
     async function fetchFromNADRA(query) {
-        // clean input: numeric only
         const cleanInput = query.replace(/[^0-9]/g, '');
         if (cleanInput.length < 10) {
             throw new Error('Invalid length');
         }
 
-        // attempt real worker (original endpoint)
         try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 10000);
@@ -473,29 +445,25 @@ Here is the redesigned HTML document based on your exact screenshot design, with
                 headers: { 'Accept': 'application/json' }
             });
             clearTimeout(timeoutId);
+            
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const jsonData = await response.json();
-            // if valid and has records
+            
             if (jsonData && jsonData.success === true && jsonData.data?.records?.length > 0) {
                 return jsonData;
             } else {
-                // no records or success false, fallback to synthetic nadra (demo but realistic)
-                console.warn("API returned empty, using sim db fallback");
                 return generateSimulatedNADRAData(cleanInput);
             }
         } catch (err) {
-            console.warn("Worker error, using simulated NADRA response:", err);
-            // network issues or timeout: return simulated official NADRA data
+            console.warn("Using fallback NADRA data:", err);
             return generateSimulatedNADRAData(cleanInput);
         }
     }
 
-    // Main scan logic
+    // Main scan
     async function performScan() {
         let rawValue = identityInput.value.trim();
         if (rawValue === "") {
-            showToastMessage("ENTER VALID NUMBER / CNIC", true);
-            // show minimal failure same style as screenshot
             resultContainer.innerHTML = `
                 <div class="status-message" style="border-left-color: #ff5555;">
                     <span class="error-text">✖ CONNECTION FAILED</span><br>
@@ -504,7 +472,7 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             `;
             return;
         }
-        // Remove spaces, keep numeric
+        
         const numericValue = rawValue.replace(/[^0-9]/g, '');
         if (numericValue.length < 10) {
             resultContainer.innerHTML = `
@@ -516,21 +484,16 @@ Here is the redesigned HTML document based on your exact screenshot design, with
             return;
         }
 
-        // show loading
         showLoading();
         scanBtn.disabled = true;
         scanBtn.classList.add('disabled');
         
         try {
-            // fetch NADRA / sim db data
             const responseData = await fetchFromNADRA(numericValue);
-            // check if response contains records
-            if (responseData && responseData.success && responseData.data && responseData.data.records && responseData.data.records.length > 0) {
+            if (responseData && responseData.success && responseData.data?.records?.length > 0) {
                 const renderedHtml = renderDataFromAPI(responseData, numericValue);
                 resultContainer.innerHTML = renderedHtml;
-                // optional: small success sound/vibe
             } else {
-                // failure exactly like screenshot
                 resultContainer.innerHTML = `
                     <div class="status-message" style="border-left-color: #ff5555; background:#120b0b;">
                         <span style="color: #ff8888; font-weight: bold;">✖ CONNECTION FAILED</span><br>
@@ -552,26 +515,13 @@ Here is the redesigned HTML document based on your exact screenshot design, with
         }
     }
 
-    // enable scanning via button
     scanBtn.addEventListener('click', performScan);
-    // allow enter key
     identityInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
             performScan();
         }
     });
-
-    // Additional: styling for disabled,
-    // Also prefill example from your screenshot "03041373295"
-    identityInput.value = "03041373295";
-
-    // tiny initial message update
-    const initMsgDiv = document.getElementById('initialMsg');
-    if (initMsgDiv) initMsgDiv.innerHTML = "⚡ ready · enter identity";
 </script>
-
-<!-- Optional: PNG save feature removed as per simplicity, everything respects exact screenshot appearance -->
 </body>
 </html>
-```
